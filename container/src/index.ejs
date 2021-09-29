@@ -1,7 +1,7 @@
 <!--
  * @Date: 2021-09-10 15:30:39
  * @LastEditors: Timothy
- * @LastEditTime: 2021-09-28 11:48:01
+ * @LastEditTime: 2021-09-29 15:35:08
  * @Description: 
 -->
 <!DOCTYPE html>
@@ -45,7 +45,8 @@
         "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@17.0.2/umd/react-dom.production.min.js",
         "react-router-dom": "https://cdn.jsdelivr.net/npm/react-router-dom@5.3.0/umd/react-router-dom.min.js",
         "vue": "https://cdn.jsdelivr.net/npm/vue@2.6.1/dist/vue.min.js",
-        "vue-router": "https://cdn.jsdelivr.net/npm/vue-router@3.0.7/dist/vue-router.min.js"
+        "vue-router": "https://cdn.jsdelivr.net/npm/vue-router@3.0.7/dist/vue-router.min.js",
+        "rxjs": "https://cdn.jsdelivr.net/npm/rxjs@7.3.0/dist/bundles/rxjs.umd.min.js"
       }
     }
   </script>
@@ -59,10 +60,13 @@
   <script type="systemjs-importmap">
     {
       "imports": {
+        "@slb-broker/welcome": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
         "@slb-broker/root-config": "//localhost:9000/slb-broker-root-config.js",
         "@slb-broker/mpss":"//localhost:9001/slb-broker-mpss.js",
         "@slb-broker/todos":"//localhost:9002/slb-broker-todos.js",
-        "@slb-broker/realworld":"//localhost:9004/js/app.js"
+        "@slb-broker/realworld":"//localhost:9004/js/app.js",
+        "@slb-broker/navbar":"//localhost:9005/slb-broker-navbar.js",
+        "@slb-broker/utils":"//localhost:9006/slb-broker-utils.js"
       }
     }
   </script>
@@ -89,6 +93,24 @@
     You need to enable JavaScript to run this app.
   </noscript>
   <main></main>
+  <!-- 布局引擎 -->
+  <template id="single-spa-layout">
+    <single-spa-router>
+      <application name="@slb-broker/navbar"></application>
+      <route default>
+        <application name="@slb-broker/welcome"></application>
+      </route>
+      <route path="/mpss">
+        <application name="@slb-broker/mpss"></application>
+      </route>
+      <route path="/realworld">
+        <application name="@slb-broker/realworld"></application>
+      </route>
+      <route path="/todos">
+        <application name="@slb-broker/todos"></application>
+      </route>
+    </single-spa-router>
+  </template>
   <div id="todos"></div>
   <script>
     System.import('@slb-broker/root-config'); // 容器应用
