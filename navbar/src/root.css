@@ -1,0 +1,14 @@
+.navbar-wrap {
+  height: 40px;
+  line-height: 40px;
+  background: #eee;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.navbar-wrap a {
+  margin-right: 10px;
+  font-size: 20px;
+  color: blue;
+  font-weight: bold;
+}
