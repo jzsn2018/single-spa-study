@@ -12,10 +12,10 @@ import "./root.css";
 export default function Root(props) {
   return (<BrowserRouter>
     <div className="navbar-wrap">
-    <Link to="/">@single-spa/welcome</Link>{" "}
-    <Link to="/mpss">@single-spa/mpss</Link>{" "}
-    <Link to="/todos">@single-spa/todos</Link>{" "}
-    <Link to="/realworld">@single-spa/realworld</Link>{" "}
+    <Link to="/">@slb-broker/welcome</Link>{" "}
+    <Link to="/mpss">@slb-broker/mpss</Link>{" "}
+    <Link to="/todos">@slb-broker/todos</Link>{" "}
+    <Link to="/realworld">@slb-broker/realworld</Link>{" "}
     </div>
   </BrowserRouter>)
 }
